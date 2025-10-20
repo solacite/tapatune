@@ -8,6 +8,8 @@ var taps = 0
 var hover_angle = 15
 var tween
 
+@onready var audio_player := $"../AudioStreamPlayer2D"
+
 func _ready() -> void:
 	await get_tree().process_frame
 	set_pivot_offset(size / 2)
@@ -22,6 +24,9 @@ func _on_pressed() -> void:
 		tween.kill()
 	tween = create_tween()
 	tween.tween_property(self, "scale", normal_scale, 0.15)
+	
+	if not audio_player.playing:
+		audio_player.play(audio_player.get_playback_position())
 
 func _on_mouse_entered() -> void:
 	if tween:
