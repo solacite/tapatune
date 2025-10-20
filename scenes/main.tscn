@@ -8,10 +8,10 @@ layout_mode = 3
 anchors_preset = 0
 
 [node name="Vinyl" type="TextureButton" parent="."]
-offset_left = 291.0
-offset_top = 45.0
-offset_right = 2339.0
-offset_bottom = 2093.0
+offset_left = 319.0
+offset_top = 36.0
+offset_right = 2367.0
+offset_bottom = 2084.0
 scale = Vector2(0.265, 0.265)
 texture_normal = ExtResource("1_o5qli")
 script = ExtResource("1_0wfyh")
@@ -24,6 +24,6 @@ offset_bottom = 603.0
 scale = Vector2(1.69616, 1.73656)
 text = "0"
 
-[connection signal="mouse_entered" from="Vinyl" to="." method="_on_vinyl_mouse_entered"]
-[connection signal="mouse_exited" from="Vinyl" to="." method="_on_vinyl_mouse_exited"]
-[connection signal="pressed" from="Vinyl" to="." method="_on_vinyl_pressed"]
+[connection signal="mouse_entered" from="Vinyl" to="Vinyl" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Vinyl" to="Vinyl" method="_on_mouse_exited"]
+[connection signal="pressed" from="Vinyl" to="Vinyl" method="_on_pressed"]
