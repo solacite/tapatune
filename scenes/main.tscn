@@ -1,0 +1,21 @@
+[gd_scene load_steps=2 format=3 uid="uid://h07885e34whf"]
+
+[ext_resource type="Texture2D" uid="uid://c38vmto4bvgvp" path="res://assets/vinyl.png" id="1_o5qli"]
+
+[node name="Main" type="Node2D"]
+
+[node name="Vinyl" type="TextureButton" parent="."]
+offset_left = 291.0
+offset_top = 45.0
+offset_right = 2339.0
+offset_bottom = 2093.0
+scale = Vector2(0.265, 0.265)
+texture_normal = ExtResource("1_o5qli")
+
+[node name="# of taps" type="Label" parent="."]
+offset_left = 569.0
+offset_top = 580.0
+offset_right = 609.0
+offset_bottom = 603.0
+scale = Vector2(1.69616, 1.73656)
+text = "0"
