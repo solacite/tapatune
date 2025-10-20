@@ -6,6 +6,7 @@
 [node name="Main" type="Control"]
 layout_mode = 3
 anchors_preset = 0
+script = ExtResource("1_0wfyh")
 
 [node name="Vinyl" type="TextureButton" parent="."]
 offset_left = 291.0
@@ -14,7 +15,6 @@ offset_right = 2339.0
 offset_bottom = 2093.0
 scale = Vector2(0.265, 0.265)
 texture_normal = ExtResource("1_o5qli")
-script = ExtResource("1_0wfyh")
 
 [node name="Taps" type="Label" parent="."]
 offset_left = 569.0
