@@ -8,10 +8,10 @@ layout_mode = 3
 anchors_preset = 0
 
 [node name="Vinyl" type="TextureButton" parent="."]
-offset_left = 319.0
-offset_top = 36.0
-offset_right = 2367.0
-offset_bottom = 2084.0
+offset_left = 555.0
+offset_top = 291.0
+offset_right = 2603.0
+offset_bottom = 2339.0
 scale = Vector2(0.265, 0.265)
 texture_normal = ExtResource("1_o5qli")
 script = ExtResource("1_0wfyh")
