@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://h07885e34whf"]
+[gd_scene load_steps=8 format=3 uid="uid://h07885e34whf"]
 
 [ext_resource type="Script" uid="uid://l7cxwmpuea0k" path="res://scripts/main.gd" id="1_0wfyh"]
 [ext_resource type="Texture2D" uid="uid://c38vmto4bvgvp" path="res://assets/vinyl.png" id="1_o5qli"]
 [ext_resource type="Script" uid="uid://bmd1682xb62ol" path="res://scripts/vinyl.gd" id="3_jyhfs"]
 [ext_resource type="AudioStream" uid="uid://cfcornqk07wys" path="res://music/the boy is mine.mp3" id="3_sugp2"]
+[ext_resource type="FontFile" uid="uid://d32qwu54tt2b2" path="res://assets/GoogleSansCode-Bold.ttf" id="4_o6xl0"]
 [ext_resource type="Texture2D" uid="uid://dyyaijpqdl8om" path="res://assets/vinyl outline.png" id="5_tbgi4"]
 [ext_resource type="Texture2D" uid="uid://c2ejnc3gdioi4" path="res://assets/vinyl bg.png" id="6_tefeu"]
 
@@ -29,6 +30,7 @@ offset_top = 704.0
 offset_right = 573.0
 offset_bottom = 727.0
 scale = Vector2(4.131, 4.231)
+theme_override_fonts/font = ExtResource("4_o6xl0")
 text = "0"
 
 [node name="Stereo" type="AudioStreamPlayer2D" parent="."]
