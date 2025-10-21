@@ -16,7 +16,25 @@ func _ready() -> void:
 	position -= size / 2
 	scale = normal_scale
 
+func flash_all():
+	var flash_nodes = [
+		$"../Flash/ColorRect",
+		$"../Flash/ColorRect2",
+		$"../Flash/ColorRect3",
+		$"../Flash/ColorRect4",
+		$"../Flash/ColorRect5",
+		$"../Flash/ColorRect6"
+	]
+	for rect in flash_nodes:
+		flash_rect(rect)
+
+func flash_rect(rect):
+	rect.modulate.a = 1.0
+	var tween = create_tween()
+	tween.tween_property(rect, "modulate:a", 0.0, 0.3)
+
 func _on_pressed() -> void:
+	flash_all()
 	scale = click_scale
 	taps += 1
 	$"../Taps".text = str(taps)
