@@ -7,7 +7,7 @@ extends Node
 var capture
 
 var THRESHOLD = 0.14 # threshold for bass energy to trigger zoom
-var HIGH_THRESHOLD = 0.17 # threshold for high-frequency energy to trigger flash
+var HIGH_THRESHOLD = 0.14 # threshold for high-frequency energy to trigger flash
 
 var zoom_normal = Vector2(1, 1)
 var tween
