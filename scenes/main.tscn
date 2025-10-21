@@ -25,12 +25,14 @@ script = ExtResource("3_jyhfs")
 
 [node name="Taps" type="Label" parent="."]
 layout_mode = 0
-offset_left = 533.0
-offset_top = 704.0
-offset_right = 573.0
-offset_bottom = 727.0
+offset_left = 522.0
+offset_top = 713.0
+offset_right = 562.0
+offset_bottom = 751.0
 scale = Vector2(4.131, 4.231)
+theme_override_colors/font_color = Color(0.869635, 0.929207, 0.994483, 1)
 theme_override_fonts/font = ExtResource("4_o6xl0")
+theme_override_font_sizes/font_size = 30
 text = "0"
 
 [node name="Stereo" type="AudioStreamPlayer2D" parent="."]

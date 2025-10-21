@@ -37,7 +37,7 @@ func animate_tap_counter():
 	var t = create_tween()
 	t.tween_property(tap_label, "scale", rest_scale, 0.1)
 
-# Play a random audio file
+# play random audio file
 func play_random_audio():
 	var random_audio = audio_files[randi() % audio_files.size()]
 	audio_player.stream = random_audio
