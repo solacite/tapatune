@@ -3,6 +3,7 @@ extends Node
 @onready var camera = $Camera2D
 var capture
 var THRESHOLD = 0.2
+var HIGH_THRESHOLD = 0.18
 var zoom_normal = Vector2(1, 1)
 var tween
 
@@ -16,11 +17,25 @@ func _process(delta):
 		var bass = get_bass_energy(samples)
 		if bass > THRESHOLD:
 			zoom_screen(bass)
+		var high = get_high_freq_energy(samples)
+		if high > HIGH_THRESHOLD:
+			flash_rect($"VinylOutline")
 
 func get_bass_energy(samples: PackedVector2Array) -> float:
-	var total = 0.0
 	var count = min(samples.size(), 128)
+	if count == 0:
+		return 0.0
+	var total = 0.0
 	for i in count:
+		total += abs(samples[i].x)
+	return total / count
+
+func get_high_freq_energy(samples: PackedVector2Array) -> float:
+	var count = min(samples.size(), 128)
+	if count == 0:
+		return 0.0
+	var total = 0.0
+	for i in range(samples.size() - count, samples.size()):
 		total += abs(samples[i].x)
 	return total / count
 
@@ -32,5 +47,10 @@ func zoom_screen(bass):
 	var zoom_amount = lerp(1.0, min_zoom, bass_strength)
 	var target_zoom = Vector2(zoom_amount, zoom_amount)
 	tween = create_tween()
-	tween.tween_property(camera, "zoom", target_zoom, 0.08).from(camera.zoom)
+	tween.tween_property(camera, "zoom", target_zoom * 1.2, 0.08).from(camera.zoom)
 	tween.tween_property(camera, "zoom", zoom_normal, 0.15)
+
+func flash_rect(rect):
+	rect.modulate.a = 1.0
+	var tween = create_tween()
+	tween.tween_property(rect, "modulate:a", 0.0, 0.5)

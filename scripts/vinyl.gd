@@ -8,6 +8,9 @@ var taps = 0
 var hover_angle = 15
 var tween
 
+var target_rotation_degrees := 0.0       # Where we want to rotate to
+var rotation_step := 45.0                # How many degrees per click
+
 @onready var audio_player := $"../AudioStreamPlayer2D"
 
 func _ready() -> void:
@@ -16,25 +19,7 @@ func _ready() -> void:
 	position -= size / 2
 	scale = normal_scale
 
-func flash_all():
-	var flash_nodes = [
-		$"../Flash/ColorRect",
-		$"../Flash/ColorRect2",
-		$"../Flash/ColorRect3",
-		$"../Flash/ColorRect4",
-		$"../Flash/ColorRect5",
-		$"../Flash/ColorRect6"
-	]
-	for rect in flash_nodes:
-		flash_rect(rect)
-
-func flash_rect(rect):
-	rect.modulate.a = 1.0
-	var tween = create_tween()
-	tween.tween_property(rect, "modulate:a", 0.0, 0.3)
-
 func _on_pressed() -> void:
-	flash_all()
 	scale = click_scale
 	taps += 1
 	$"../Taps".text = str(taps)
@@ -42,20 +27,30 @@ func _on_pressed() -> void:
 		tween.kill()
 	tween = create_tween()
 	tween.tween_property(self, "scale", normal_scale, 0.15)
-	
+
+	# Increment the target rotation and animate to it
+	target_rotation_degrees += rotation_step
+	animate_rotation_to_target()
+
 	if not audio_player.playing:
 		audio_player.play(audio_player.get_playback_position())
+
+func animate_rotation_to_target():
+	if tween:
+		tween.kill()
+	tween = create_tween()
+	tween.tween_property(self, "rotation_degrees", target_rotation_degrees, 0.2)  # 0.2s, adjust as you like
 
 func _on_mouse_entered() -> void:
 	if tween:
 		tween.kill()
 	tween = create_tween()
 	tween.tween_property(self, "scale", hover_scale, 0.1)
-	tween.tween_property(self, "rotation_degrees", hover_angle, 0.1)
+	tween.tween_property(self, "rotation_degrees", target_rotation_degrees + hover_angle, 0.1)
 
 func _on_mouse_exited() -> void:
 	if tween:
 		tween.kill()
 	tween = create_tween()
 	tween.tween_property(self, "scale", normal_scale, 0.1)
-	tween.tween_property(self, "rotation_degrees", 0, 0.1)
+	tween.tween_property(self, "rotation_degrees", target_rotation_degrees, 0.1)

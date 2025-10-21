@@ -1,9 +1,11 @@
-[gd_scene load_steps=5 format=3 uid="uid://h07885e34whf"]
+[gd_scene load_steps=7 format=3 uid="uid://h07885e34whf"]
 
 [ext_resource type="Script" uid="uid://l7cxwmpuea0k" path="res://scripts/main.gd" id="1_0wfyh"]
 [ext_resource type="Texture2D" uid="uid://c38vmto4bvgvp" path="res://assets/vinyl.png" id="1_o5qli"]
 [ext_resource type="Script" uid="uid://bmd1682xb62ol" path="res://scripts/vinyl.gd" id="3_jyhfs"]
 [ext_resource type="AudioStream" uid="uid://cfcornqk07wys" path="res://music/the boy is mine.mp3" id="3_sugp2"]
+[ext_resource type="Texture2D" uid="uid://dyyaijpqdl8om" path="res://assets/vinyl outline.png" id="5_tbgi4"]
+[ext_resource type="Texture2D" uid="uid://c2ejnc3gdioi4" path="res://assets/vinyl bg.png" id="6_tefeu"]
 
 [node name="Main" type="Control"]
 layout_mode = 3
@@ -34,72 +36,19 @@ stream = ExtResource("3_sugp2")
 bus = &"CaptureBus"
 parameters/looping = false
 
-[node name="Flash" type="Node" parent="."]
-
-[node name="ColorRect" type="ColorRect" parent="Flash"]
-light_mask = 0
-z_index = -1
-offset_left = -36.0
-offset_top = 354.0
-offset_right = 4.0
-offset_bottom = 394.0
-scale = Vector2(3.24, 16.36)
-color = Color(0.792157, 0.901961, 1, 1)
-
-[node name="ColorRect2" type="ColorRect" parent="Flash"]
-light_mask = 0
-z_index = -1
-offset_left = 1069.0
-offset_top = -298.0
-offset_right = 1109.0
-offset_bottom = -258.0
-scale = Vector2(3.24, 16.36)
-color = Color(0.968627, 0.741176, 0.470588, 1)
-
-[node name="ColorRect3" type="ColorRect" parent="Flash"]
-light_mask = 0
-z_index = -1
-offset_left = 1082.0
-offset_top = -45.0
-offset_right = 1122.0
-offset_bottom = -5.00001
-rotation = 1.5708
-scale = Vector2(3.39119, 26.0301)
-color = Color(0.968627, 0.741176, 0.470588, 1)
-
-[node name="ColorRect4" type="ColorRect" parent="Flash"]
-light_mask = 0
-z_index = -1
-offset_left = 1112.0
-offset_top = 610.0
-offset_right = 1152.0
-offset_bottom = 650.0
-rotation = 1.5708
-scale = Vector2(3.39119, 26.0301)
-color = Color(0.792157, 0.901961, 1, 1)
-
-[node name="ColorRect5" type="ColorRect" parent="Flash"]
-light_mask = 0
-z_index = -1
-offset_left = 1069.0
-offset_top = 350.0
-offset_right = 1109.0
-offset_bottom = 390.0
-scale = Vector2(3.24, 16.36)
-color = Color(0.792157, 0.901961, 1, 1)
-
-[node name="ColorRect6" type="ColorRect" parent="Flash"]
-light_mask = 0
-z_index = -1
-offset_left = -36.0
-offset_top = -296.0
-offset_right = 4.0
-offset_bottom = -256.0
-scale = Vector2(3.24, 16.36)
-color = Color(0.968627, 0.741176, 0.470588, 1)
-
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(577, 326)
+
+[node name="VinylOutline" type="Sprite2D" parent="."]
+position = Vector2(560.5, 355)
+scale = Vector2(0.525799, 0.513566)
+texture = ExtResource("5_tbgi4")
+
+[node name="VinylBg" type="Sprite2D" parent="."]
+z_index = -10
+position = Vector2(572, 323)
+scale = Vector2(0.449946, 0.554809)
+texture = ExtResource("6_tefeu")
 
 [connection signal="mouse_entered" from="Vinyl" to="Vinyl" method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="Vinyl" to="Vinyl" method="_on_mouse_exited"]
