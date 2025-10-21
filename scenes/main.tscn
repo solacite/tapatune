@@ -25,9 +25,9 @@ script = ExtResource("3_jyhfs")
 [node name="Taps" type="Label" parent="."]
 layout_mode = 0
 offset_left = 533.0
-offset_top = 689.0
+offset_top = 704.0
 offset_right = 573.0
-offset_bottom = 712.0
+offset_bottom = 727.0
 scale = Vector2(4.131, 4.231)
 text = "0"
 
