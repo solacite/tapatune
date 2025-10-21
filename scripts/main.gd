@@ -6,7 +6,7 @@ extends Node
 # hold the AudioEffectCapture instance for analyzing audio
 var capture
 
-var THRESHOLD = 0.2 # threshold for bass energy to trigger zoom
+var THRESHOLD = 0.17 # threshold for bass energy to trigger zoom
 var HIGH_THRESHOLD = 0.18 # threshold for high-frequency energy to trigger flash
 
 var zoom_normal = Vector2(1, 1)

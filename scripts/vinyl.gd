@@ -16,7 +16,9 @@ var rotation_step := 45.0 # degrees to rotate per click
 
 # preload audio files into array
 var audio_files = [
-	preload("res://music/the boy is mine.mp3")
+	preload("res://music/the boy is mine.mp3"),
+	preload("res://music/[SPOTDOWNLOADER.COM] HOMESICK.mp3"),
+	preload("res://music/[SPOTDOWNLOADER.COM] when the rain stops.mp3")
 ]
 
 func _ready() -> void:
