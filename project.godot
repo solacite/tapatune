@@ -18,6 +18,10 @@ config/features=PackedStringArray("4.4", "GL Compatibility")
 
 buses/default_bus_layout="res://music/default_bus_layout.tres"
 
+[display]
+
+window/size/mode=4
+
 [editor_plugins]
 
 enabled=PackedStringArray("res://addons/godot_super-wakatime/plugin.cfg")

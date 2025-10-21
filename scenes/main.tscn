@@ -18,20 +18,20 @@ offset_left = 555.0
 offset_top = 291.0
 offset_right = 2603.0
 offset_bottom = 2339.0
-scale = Vector2(0.265, 0.265)
+scale = Vector2(0.445, 0.445)
 texture_normal = ExtResource("1_o5qli")
 script = ExtResource("3_jyhfs")
 
 [node name="Taps" type="Label" parent="."]
 layout_mode = 0
-offset_left = 541.0
-offset_top = 552.0
-offset_right = 581.0
-offset_bottom = 575.0
-scale = Vector2(1.69616, 1.73656)
+offset_left = 533.0
+offset_top = 689.0
+offset_right = 573.0
+offset_bottom = 712.0
+scale = Vector2(4.131, 4.231)
 text = "0"
 
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+[node name="Stereo" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("3_sugp2")
 bus = &"CaptureBus"
 parameters/looping = false
@@ -40,14 +40,15 @@ parameters/looping = false
 position = Vector2(577, 326)
 
 [node name="VinylOutline" type="Sprite2D" parent="."]
-position = Vector2(560.5, 355)
-scale = Vector2(0.525799, 0.513566)
+z_index = -2
+position = Vector2(524, 368)
+scale = Vector2(0.885174, 0.869186)
 texture = ExtResource("5_tbgi4")
 
 [node name="VinylBg" type="Sprite2D" parent="."]
 z_index = -10
-position = Vector2(572, 323)
-scale = Vector2(0.449946, 0.554809)
+position = Vector2(588, 311)
+scale = Vector2(0.797238, 0.829457)
 texture = ExtResource("6_tefeu")
 
 [connection signal="mouse_entered" from="Vinyl" to="Vinyl" method="_on_mouse_entered"]
