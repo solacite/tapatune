@@ -1,0 +1,85 @@
+[gd_scene load_steps=8 format=3 uid="uid://h07885e34whf"]
+
+[ext_resource type="Script" uid="uid://l7cxwmpuea0k" path="res://scripts/main.gd" id="1_0wfyh"]
+[ext_resource type="Texture2D" uid="uid://c38vmto4bvgvp" path="res://assets/vinyl.png" id="1_o5qli"]
+[ext_resource type="Script" uid="uid://bmd1682xb62ol" path="res://scripts/vinyl.gd" id="3_jyhfs"]
+[ext_resource type="AudioStream" uid="uid://cfcornqk07wys" path="res://music/the boy is mine.mp3" id="3_sugp2"]
+[ext_resource type="Script" uid="uid://cgdoluhp42imx" path="res://scripts/afterimages.gd" id="4_o6xl0"]
+[ext_resource type="Texture2D" uid="uid://dyyaijpqdl8om" path="res://assets/vinyl outline.png" id="5_tbgi4"]
+[ext_resource type="Texture2D" uid="uid://c2ejnc3gdioi4" path="res://assets/vinyl bg.png" id="6_tefeu"]
+
+[node name="Main" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_0wfyh")
+
+[node name="Vinyl" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 555.0
+offset_top = 291.0
+offset_right = 2603.0
+offset_bottom = 2339.0
+scale = Vector2(0.445, 0.445)
+texture_normal = ExtResource("1_o5qli")
+script = ExtResource("3_jyhfs")
+
+[node name="Taps" type="Label" parent="."]
+layout_mode = 0
+offset_left = 533.0
+offset_top = 689.0
+offset_right = 573.0
+offset_bottom = 712.0
+scale = Vector2(4.131, 4.231)
+text = "0"
+
+[node name="Afterimages" type="Node2D" parent="."]
+script = ExtResource("4_o6xl0")
+
+[node name="Afterimage1" type="Sprite2D" parent="Afterimages"]
+position = Vector2(-193, 291)
+scale = Vector2(0.445, 0.445)
+texture = ExtResource("1_o5qli")
+
+[node name="Afterimage2" type="Sprite2D" parent="Afterimages"]
+position = Vector2(152, 287)
+scale = Vector2(0.445, 0.445)
+texture = ExtResource("1_o5qli")
+
+[node name="Afterimage3" type="Sprite2D" parent="Afterimages"]
+position = Vector2(536, 307)
+scale = Vector2(0.445, 0.445)
+texture = ExtResource("1_o5qli")
+
+[node name="Afterimage4" type="Sprite2D" parent="Afterimages"]
+position = Vector2(924, 318)
+scale = Vector2(0.445, 0.445)
+texture = ExtResource("1_o5qli")
+
+[node name="Afterimage5" type="Sprite2D" parent="Afterimages"]
+position = Vector2(1296, 318)
+scale = Vector2(0.445, 0.445)
+texture = ExtResource("1_o5qli")
+
+[node name="Stereo" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_sugp2")
+bus = &"CaptureBus"
+parameters/looping = false
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(577, 326)
+
+[node name="VinylOutline" type="Sprite2D" parent="."]
+z_index = -2
+position = Vector2(524, 368)
+scale = Vector2(0.885174, 0.869186)
+texture = ExtResource("5_tbgi4")
+
+[node name="VinylBg" type="Sprite2D" parent="."]
+z_index = -10
+position = Vector2(588, 311)
+scale = Vector2(0.797238, 0.829457)
+texture = ExtResource("6_tefeu")
+
+[connection signal="mouse_entered" from="Vinyl" to="Vinyl" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Vinyl" to="Vinyl" method="_on_mouse_exited"]
+[connection signal="pressed" from="Vinyl" to="Vinyl" method="_on_pressed"]
