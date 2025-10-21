@@ -18,15 +18,79 @@ texture_normal = ExtResource("1_o5qli")
 script = ExtResource("1_0wfyh")
 
 [node name="Taps" type="Label" parent="."]
-offset_left = 569.0
-offset_top = 580.0
-offset_right = 609.0
-offset_bottom = 603.0
+offset_left = 541.0
+offset_top = 552.0
+offset_right = 581.0
+offset_bottom = 575.0
 scale = Vector2(1.69616, 1.73656)
 text = "0"
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("3_sugp2")
+
+[node name="Flash" type="Node" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="Flash"]
+light_mask = 0
+z_index = -1
+offset_left = -36.0
+offset_top = 354.0
+offset_right = 4.0
+offset_bottom = 394.0
+scale = Vector2(3.24, 16.36)
+color = Color(0.792157, 0.901961, 1, 1)
+
+[node name="ColorRect2" type="ColorRect" parent="Flash"]
+light_mask = 0
+z_index = -1
+offset_left = 1069.0
+offset_top = -298.0
+offset_right = 1109.0
+offset_bottom = -258.0
+scale = Vector2(3.24, 16.36)
+color = Color(0.968627, 0.741176, 0.470588, 1)
+
+[node name="ColorRect3" type="ColorRect" parent="Flash"]
+light_mask = 0
+z_index = -1
+offset_left = 1082.0
+offset_top = -45.0
+offset_right = 1122.0
+offset_bottom = -5.00001
+rotation = 1.5708
+scale = Vector2(3.39119, 26.0301)
+color = Color(0.968627, 0.741176, 0.470588, 1)
+
+[node name="ColorRect4" type="ColorRect" parent="Flash"]
+light_mask = 0
+z_index = -1
+offset_left = 1112.0
+offset_top = 610.0
+offset_right = 1152.0
+offset_bottom = 650.0
+rotation = 1.5708
+scale = Vector2(3.39119, 26.0301)
+color = Color(0.792157, 0.901961, 1, 1)
+
+[node name="ColorRect5" type="ColorRect" parent="Flash"]
+light_mask = 0
+z_index = -1
+offset_left = 1069.0
+offset_top = 350.0
+offset_right = 1109.0
+offset_bottom = 390.0
+scale = Vector2(3.24, 16.36)
+color = Color(0.792157, 0.901961, 1, 1)
+
+[node name="ColorRect6" type="ColorRect" parent="Flash"]
+light_mask = 0
+z_index = -1
+offset_left = -36.0
+offset_top = -296.0
+offset_right = 4.0
+offset_bottom = -256.0
+scale = Vector2(3.24, 16.36)
+color = Color(0.968627, 0.741176, 0.470588, 1)
 
 [connection signal="mouse_entered" from="Vinyl" to="Vinyl" method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="Vinyl" to="Vinyl" method="_on_mouse_exited"]
