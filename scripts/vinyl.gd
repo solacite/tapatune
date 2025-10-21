@@ -8,46 +8,56 @@ var taps = 0 # Num of btn presses
 var hover_angle = 15 # angle to rotate upon hover
 var tween # tween object for anim
 
-var target_rotation_degrees := 0.0           # Target rotation after each press
-var rotation_step := 45.0                    # Degrees to rotate per click
+var target_rotation_degrees := 0.0 # target rotation after press
+var rotation_step := 45.0 # degrees to rotate per click
 
-@onready var audio_player := $"../Stereo"    # Reference to AudioStreamPlayer2D node
-@onready var tap_label := $"../Taps"         # Reference to Taps label node
+@onready var audio_player := $"../Stereo" # ref AudioStreamPlayer2D
+@onready var tap_label := $"../Taps" # ref label
+
+# preload audio files into array
+var audio_files = [
+	preload("res://music/the boy is mine.mp3")
+]
 
 func _ready() -> void:
-	# Set a visually pleasing default scale for tap label
 	tap_label.scale = Vector2(2, 2)
-	# Wait one frame for proper size calculation
 	await get_tree().process_frame
-	set_pivot_offset(size / 2)               # Set center as pivot for scaling/rotation
-	position -= size / 2                     # Center vinyl on initial position
-	scale = normal_scale                     # Set initial button scale
+	set_pivot_offset(size / 2) # set center as pivot
+	position -= size / 2 # center vinyl on initial pos
+	scale = normal_scale # set initial btn scale
+	randomize() # ensure randomness for audio selection
 
+# anim label
 func animate_tap_counter():
-	# Animate tap label to "pop" then return to default scale
 	var rest_scale = Vector2(2, 2)
 	var pop_scale = Vector2(2.5, 2.5)
 	tap_label.scale = pop_scale
 	var t = create_tween()
 	t.tween_property(tap_label, "scale", rest_scale, 0.1)
 
+# Play a random audio file
+func play_random_audio():
+	var random_audio = audio_files[randi() % audio_files.size()]
+	audio_player.stream = random_audio
+	audio_player.play()
+
 func _on_pressed() -> void:
 	animate_tap_counter()
-	scale = click_scale                      # Shrink button on press
-	taps += 1                                # Increment tap count
-	tap_label.text = str(taps)               # Update tap label
+	scale = click_scale  # shrink btn on press
+	taps += 1 # inc tap count
+	tap_label.text = str(taps) # upd label
 	if tween:
-		tween.kill()                         # Kill running tween if any
+		tween.kill() # kill tween
 	tween = create_tween()
-	tween.tween_property(self, "scale", normal_scale, 0.15) # Restore button scale
+	tween.tween_property(self, "scale", normal_scale, 0.15) # restore button scale
 
-	# Increment target rotation and animate to it
+	# inc target rotation + anim
 	target_rotation_degrees += rotation_step
 	animate_rotation_to_target()
 
-	# play audio if not already playing
+	# play audio if not already playing, choose random file if stopped
 	if not audio_player.playing:
-		audio_player.play(audio_player.get_playback_position())
+		play_random_audio()
 
 # animate btn rotation to new target angle
 func animate_rotation_to_target():

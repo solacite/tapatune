@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://ce44lsfg3d50c"
+path="res://.godot/imported/[SPOTDOWNLOADER.COM] HOMESICK.mp3-cc37ca41c17fc5b1da68ef513a879214.mp3str"
+
+[deps]
+
+source_file="res://music/[SPOTDOWNLOADER.COM] HOMESICK.mp3"
+dest_files=["res://.godot/imported/[SPOTDOWNLOADER.COM] HOMESICK.mp3-cc37ca41c17fc5b1da68ef513a879214.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
