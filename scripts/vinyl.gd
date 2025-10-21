@@ -1,21 +1,26 @@
 extends TextureButton
 
+# btn scales
 var click_scale := Vector2(0.435, 0.435) # scale upon click
 var hover_scale := Vector2(0.5, 0.5) # scale upon hover
 var normal_scale := Vector2(0.445, 0.445) # default scale
 
+# general vars
 var taps = 0 # Num of btn presses
 var hover_angle = 15 # angle to rotate upon hover
 var tween # tween object for anim
 
+# rotation vars
 var target_rotation_degrees := 0.0 # target rotation after press
 var rotation_step := 45.0 # degrees to rotate per click
 
+# preloaded vars
 @onready var audio_player := $"../Stereo" # ref AudioStreamPlayer2D
 @onready var tap_label := $"../Taps" # ref label
 
 # preload audio files into array
 var audio_files = [
+	# all of this music is sick btw. you should go check it out
 	preload("res://music/the boy is mine.mp3"),
 	preload("res://music/[SPOTDOWNLOADER.COM] HOMESICK.mp3"),
 	preload("res://music/[SPOTDOWNLOADER.COM] when the rain stops.mp3")
@@ -29,7 +34,7 @@ func _ready() -> void:
 	scale = normal_scale # set initial btn scale
 	randomize() # ensure randomness for audio selection
 
-# anim label
+# anim label - tap counter
 func animate_tap_counter():
 	var rest_scale = Vector2(2, 2)
 	var pop_scale = Vector2(2.5, 2.5)
@@ -43,6 +48,7 @@ func play_random_audio():
 	audio_player.stream = random_audio
 	audio_player.play()
 
+# btn press signal func
 func _on_pressed() -> void:
 	animate_tap_counter()
 	scale = click_scale  # shrink btn on press

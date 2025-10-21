@@ -1,4 +1,5 @@
 extends Node
+# yoppee
 
 # reference Camera2D node for zoom effect
 @onready var camera = $Camera2D
@@ -6,9 +7,11 @@ extends Node
 # hold the AudioEffectCapture instance for analyzing audio
 var capture
 
+# threshold vars
 var THRESHOLD = 0.14 # threshold for bass energy to trigger zoom
 var HIGH_THRESHOLD = 0.14 # threshold for high-frequency energy to trigger flash
 
+# general vars
 var zoom_normal = Vector2(1, 1)
 var tween
 

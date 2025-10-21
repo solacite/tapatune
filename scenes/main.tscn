@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://c38vmto4bvgvp" path="res://assets/vinyl.png" id="1_o5qli"]
 [ext_resource type="Script" uid="uid://bmd1682xb62ol" path="res://scripts/vinyl.gd" id="3_jyhfs"]
 [ext_resource type="AudioStream" uid="uid://cfcornqk07wys" path="res://music/the boy is mine.mp3" id="3_sugp2"]
-[ext_resource type="FontFile" uid="uid://d32qwu54tt2b2" path="res://assets/GoogleSansCode-Bold.ttf" id="4_o6xl0"]
+[ext_resource type="FontFile" uid="uid://d32qwu54tt2b2" path="res://fonts/GoogleSansCode-Bold.ttf" id="4_o6xl0"]
 [ext_resource type="Texture2D" uid="uid://dyyaijpqdl8om" path="res://assets/vinyl outline.png" id="5_tbgi4"]
 [ext_resource type="Texture2D" uid="uid://c2ejnc3gdioi4" path="res://assets/vinyl bg.png" id="6_tefeu"]
 
@@ -42,6 +42,7 @@ parameters/looping = false
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(577, 326)
+limit_smoothed = true
 position_smoothing_enabled = true
 rotation_smoothing_enabled = true
 
